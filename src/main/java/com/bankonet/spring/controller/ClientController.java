@@ -22,7 +22,7 @@ import com.bankonet.spring.model.Client;
 import com.bankonet.spring.repository.ClientRepository;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api")
 public class ClientController {
 
     @Autowired

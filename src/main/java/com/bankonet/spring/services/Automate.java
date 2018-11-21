@@ -1,4 +1,4 @@
-package com.bankonet.spring;
+package com.bankonet.spring.services;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ public class Automate {
 		
 		double solde = 0;
 		
-		List<IcompteStat> comptes = new DonneesTest().construitEchantillonComptes();
+		List<IcompteStat> comptes = null;
 		
 		if (!comptes.isEmpty()) {
 			

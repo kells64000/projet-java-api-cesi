@@ -1,14 +1,24 @@
 package com.bankonet.spring.model;
 
-import com.bankonet.spring.IcompteStat;
+import com.bankonet.spring.services.IcompteStat;
 
 public abstract class Compte implements IcompteStat {
 
 	protected String numero;
 	protected String intitule;
 	protected double solde;
-	protected static int nbComptes = 0;
-	
+	static int nbComptes = 0;
+
+	Compte() {
+
+	}
+
+	Compte(String numero, String intitule, double solde) {
+		this.numero = numero;
+		this.intitule = intitule;
+		this.solde = solde;
+	}
+
 	public String getNumero() {
 		return numero;
 	}
@@ -39,7 +49,7 @@ public abstract class Compte implements IcompteStat {
 	
 	public final void crediter(double solde) {
 		if(solde <= 0) {
-			System.out.println("Vous ne pouvez pas cr�diter si la valeur est inf�rieure ou �gale � z�ro");
+			System.out.println("Vous ne pouvez pas créditer si la valeur est inférieure ou égale à zéro");
 		}else {
 			this.solde = this.solde + solde;		
 		}

@@ -1,4 +1,4 @@
-package com.bankonet.spring;
+package com.bankonet.spring.services;
 
 public interface IcompteStat {
 	
