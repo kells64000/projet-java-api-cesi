@@ -28,10 +28,10 @@ public class ClientController {
     @Autowired
     private ClientRepository clientRepository;
 
-    @GetMapping("/client")
+    @GetMapping("/clients")
     public List<Client> getAllClients() {
 
-        return clientRepository.findAll();
+        return (List<Client>) clientRepository.findAll();
     }
 
     @GetMapping("/clients/{id}")

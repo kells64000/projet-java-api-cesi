@@ -1,4 +1,4 @@
-package com.bankonet;
+package com.bankonet.spring.model;
 
 public abstract class Compte implements IcompteStat {
 
@@ -37,7 +37,7 @@ public abstract class Compte implements IcompteStat {
 	
 	public final void crediter(double solde) {
 		if(solde <= 0) {
-			System.out.println("Vous ne pouvez pas créditer si la valeur est infèrieure ou égale à zéro");
+			System.out.println("Vous ne pouvez pas crï¿½diter si la valeur est infï¿½rieure ou ï¿½gale ï¿½ zï¿½ro");
 		}else {
 			this.solde = this.solde + solde;		
 		}

@@ -1,4 +1,4 @@
-package com.bankonet;
+package com.bankonet.spring;
 
 import org.junit.Test;
 

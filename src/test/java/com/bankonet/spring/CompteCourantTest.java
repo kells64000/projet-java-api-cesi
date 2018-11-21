@@ -1,4 +1,4 @@
-package com.bankonet;
+package com.bankonet.spring;
 
 import static org.junit.Assert.*;
 

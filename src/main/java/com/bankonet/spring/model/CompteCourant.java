@@ -1,4 +1,4 @@
-package com.bankonet;
+package com.bankonet.spring.model;
 
 public class CompteCourant extends Compte {
 	
@@ -43,7 +43,7 @@ public class CompteCourant extends Compte {
 	@Override
 	public void debiter(double solde) {
 		if(solde >= montantDecouvertAutorise) {
-			System.out.println("Vous ne pouvez pas débiter car vous avez atteint votre plafond de découvert");
+			System.out.println("Vous ne pouvez pas dï¿½biter car vous avez atteint votre plafond de dï¿½couvert");
 		}else {
 			this.solde = this.solde + solde;
 		}

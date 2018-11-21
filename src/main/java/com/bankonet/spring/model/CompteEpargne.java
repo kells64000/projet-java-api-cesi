@@ -1,4 +1,4 @@
-package com.bankonet;
+package com.bankonet.spring.model;
 
 public class CompteEpargne extends Compte {
 	
@@ -43,7 +43,7 @@ public class CompteEpargne extends Compte {
 	@Override
 	public void debiter(double solde) {
 		if(solde >= 0) {
-			System.out.println("Vous ne pouvez pas débiter si la valeur est supérieure ou égale à zéro");
+			System.out.println("Vous ne pouvez pas dï¿½biter si la valeur est supï¿½rieure ou ï¿½gale ï¿½ zï¿½ro");
 		}else {
 			this.solde = this.solde + solde;
 		}

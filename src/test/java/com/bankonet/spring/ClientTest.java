@@ -1,4 +1,4 @@
-package com.bankonet;
+package com.bankonet.spring;
 
 import static org.junit.Assert.*;
 
@@ -8,7 +8,7 @@ public class ClientTest {
 	
 	@Test
 	public void newClient() {
-		Client client1 = new Client("1", "Bousquet", "Kélian", null, null);
+		Client client1 = new Client("1", "Bousquet", "Kï¿½lian", null, null);
 		//assertEquals(Client, Client client1);
 	}
 }
