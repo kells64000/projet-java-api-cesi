@@ -1,5 +1,7 @@
 package com.bankonet.spring.model;
 
+import com.bankonet.spring.IcompteStat;
+
 public abstract class Compte implements IcompteStat {
 
 	protected String numero;
