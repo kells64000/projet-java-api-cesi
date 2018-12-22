@@ -1,41 +1,40 @@
 package com.bankonet.spring.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "cc")
-public class CompteCourant extends Compte {
-
-    private int id;
-	private double montantDecouvertAutorise;
-	private static int nbCompteCourant = 0;
-	
-	public CompteCourant() {
-		CompteCourant.nbCompteCourant++;
-		super.nbComptes ++;
-	}
-
-    /**
-	 * @param numero
-	 * @param intitule
-	 * @param solde
-	 * @param montantDecouvertAutorise
-	 */
-	public CompteCourant(String numero, String intitule, double solde, double montantDecouvertAutorise) {
-		this();
-		this.numero = numero;
-		this.intitule = intitule;
-		this.solde = solde;
-		this.montantDecouvertAutorise = montantDecouvertAutorise;
-	}
+public class CompteCourant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(name = "decouvert", nullable = false)
+	private double montantDecouvertAutorise;
+	private static int nbCompteCourant = 0;
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_client", nullable = false)
+    @JsonIgnoreProperties("compteCourant")
+	private Client client;
+	
+	public CompteCourant() {
+		CompteCourant.nbCompteCourant++;
+//		super.nbComptes ++;
+	}
+
+    /**
+	 * @param id
+	 * @param montantDecouvertAutorise
+	 */
+	public CompteCourant(int id, double montantDecouvertAutorise) {
+		this();
+		this.id = id;
+		this.montantDecouvertAutorise = montantDecouvertAutorise;
+	}
+
     public int getId() {
 
         return id;
@@ -46,7 +45,14 @@ public class CompteCourant extends Compte {
         this.id = id;
     }
 
-    @Column(name = "decouvert", nullable = false)
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
 	public double getMontantDecouvertAutorise() {
 		return montantDecouvertAutorise;
 	}
@@ -63,20 +69,17 @@ public class CompteCourant extends Compte {
         CompteCourant.nbCompteCourant = nbCompteCourant;
     }
 	
-//	public String getNumeroCompteCourant() {
-//		return numero;
+//	@Override
+//	public void debiter(double solde) {
+//		if(solde >= montantDecouvertAutorise) {
+//			System.out.println("Vous ne pouvez pas débiter car vous avez atteint votre plafond de découvert");
+//		}else {
+//			this.solde = this.solde + solde;
+//		}
 //	}
 //
-//    public void setNumeroCompteCourant(String numeroCompteCourant) {
-//        this.numero = numeroCompteCourant;
+//    @Override
+//    public double getSolde() {
+//        return this.solde;
 //    }
-	
-	@Override
-	public void debiter(double solde) {
-		if(solde >= montantDecouvertAutorise) {
-			System.out.println("Vous ne pouvez pas débiter car vous avez atteint votre plafond de découvert");
-		}else {
-			this.solde = this.solde + solde;
-		}
-	}
 }

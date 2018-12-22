@@ -7,69 +7,65 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "ce")
-public class CompteEpargne extends Compte {
+//@Entity
+//@Table(name = "ce")
+//public class CompteEpargne /*extends Compte*/ {
 
-	private int id;
-	private double tauxInteret;
-	private static int nbCompteEpargne = 0;
+//	private int id;
+//	private double tauxInteret;
+//	private static int nbCompteEpargne = 0;
+//
+//	public CompteEpargne() {
+//		super();
+//		CompteEpargne.nbCompteEpargne++;
+//		super.nbComptes ++;
+//	}
 
-	public CompteEpargne() {
-		super();
-		CompteEpargne.nbCompteEpargne++;
-		super.nbComptes ++;
-	}
+//	public CompteEpargne(int id, String intitule, double solde, double tauxInteret) {
+//		super(id, intitule, solde);
+//		this.tauxInteret = tauxInteret;
+//	}
 
-	public CompteEpargne(String numero, String intitule, double solde, double tauxInteret) {
-		super(numero, intitule, solde);
-		this.tauxInteret = tauxInteret;
-	}
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public int getId() {
-
-		return id;
-	}
-
-	public void setId(int id) {
-
-		this.id = id;
-	}
-
-	@Column(name = "taux_interet", nullable = false)
-	public double getTauxInteret() {
-		return tauxInteret;
-	}
-
-	public void setTauxInteret(double tauxInteret) {
-		this.tauxInteret = tauxInteret;
-	}
-	
-	public static int getNbCompteEpargne() {
-		return nbCompteEpargne;
-	}
-
-	public static void setNbCompteEpargne(int nbCompteEpargne) {
-		CompteEpargne.nbCompteEpargne = nbCompteEpargne;
-	}
-	
-//	public String getNumeroCompteEpargne() {
-//		return numero;
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	public int getId() {
+//
+//		return id;
 //	}
 //
-//	public void setNumeroCompteEpargne(String numeroCompteEpargne) {
-//		this.numero = numeroCompteEpargne;
+//	public void setId(int id) {
+//
+//		this.id = id;
 //	}
 
-	@Override
-	public void debiter(double solde) {
-		if(solde >= 0) {
-			System.out.println("Vous ne pouvez pas débiter si la valeur est supérieure ou égale à zéro");
-		}else {
-			this.solde = this.solde + solde;
-		}
-	}
-	
-}
+//	@Column(name = "taux_interet", nullable = false)
+//	public double getTauxInteret() {
+//		return tauxInteret;
+//	}
+//
+//	public void setTauxInteret(double tauxInteret) {
+//		this.tauxInteret = tauxInteret;
+//	}
+//
+//	public static int getNbCompteEpargne() {
+//		return nbCompteEpargne;
+//	}
+//
+//	public static void setNbCompteEpargne(int nbCompteEpargne) {
+//		CompteEpargne.nbCompteEpargne = nbCompteEpargne;
+//	}
+
+//	@Override
+//	public void debiter(double solde) {
+//		if(solde <= 0) {
+//			System.out.println("Vous ne pouvez pas débiter si la valeur est inférieure ou égale à zéro");
+//		}else {
+//			this.solde = this.solde + solde;
+//		}
+//	}
+//
+//	@Override
+//	public double getSolde() {
+//		return 0;
+//	}
+//}
